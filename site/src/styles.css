@@ -1,19 +1,37 @@
 * {
     box-sizing: border-box;
+    font-family: "Open Sans";
 }
 
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+#header, #footer {
+  float: left;
+  width: 100%;
+  padding: 15px;
+  background-color: #369;
 }
 
-#header, #footer{
-  float:left;
-  width:100%;
-  height:200px;
-  padding:15px;
-  background-color:#369;
+#header div#logo {
+  float: left;
+  width: 40%;
+  height: 216px;
+  background-image: url('/app/img/logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#header div#texto-header {
+  float: right;
+  text-align: right;
+  position: relative;
+  top: 100px;
+}
+
+#header div p {
+  margin: 0px;
+}
+
+#middle {
+  height: 300px;
 }
 
 #middle:after {
@@ -22,23 +40,26 @@ h1 {
   display: table;
 }
 
+#menu-esquerda,
+#menu-direita,
+#main {
+  height: inherit;
+}
+
 #menu-esquerda {
-  float:left;
-  width:20%;
-  height:300px;
-  background-color:#555;
+  float: left;
+  width: 20%;
+  background-color: #555;
 }
 
 #main {
-  float:left;
-  width:60%;
-  height:300px;
-  background-color:#BBB;
+  float: left;
+  width: 60%;
+  background-color: #BBB;
 }
 
 #menu-direita {
-  float:left;
-  width:20%;
-  height:300px;
-  background-color:#555;
+  float: left;
+  width: 20%;
+  background-color: #555;
 }
