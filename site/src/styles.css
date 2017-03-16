@@ -1,13 +1,23 @@
 * {
     box-sizing: border-box;
-    font-family: "Open Sans";
+    
+}
+
+body {
+  font-family: "Open Sans";
+  font-size: 1.6vmax;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
 }
 
 #header, #footer {
   float: left;
   width: 100%;
-  padding: 15px;
-  background-color: #369;
+  padding: 15px 0px 0px 5px;
 }
 
 #header div#logo {
@@ -22,16 +32,99 @@
 #header div#texto-header {
   float: right;
   text-align: right;
-  position: relative;
-  top: 100px;
+  width: 60%;
+  height: 200px;
+  padding: 40px 0px;
 }
 
 #header div p {
   margin: 0px;
 }
 
+#header ul#menu-header,
+#menu-esquerda ul {
+  right: 0px;
+  float: right;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#header ul#menu-header li,
+#header ul#menu-header li a {
+  padding: 0;
+  overflow: hidden;
+  float: left;
+}
+
+#header ul#menu-header li a {
+  min-width: 90px;
+  height: 45px;
+  padding: 3px;
+  line-height: 39px;
+  font-size: 1vmax !important;
+  text-align: center;
+  
+}
+
+#header ul#menu-header li a:hover,
+#header ul#menu-header li a .ativo {
+  background-color: #BBB;
+}
+
+#menu-esquerda ul {
+  width: 100%;
+}
+
+#menu-esquerda ul li a {
+  width: 100%;
+  min-height: 50px;
+  line-height: 46px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#menu-esquerda ul li a span {
+  padding: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+#menu-esquerda ul li a.verde {
+  background: #00AA00; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#00AA00, #DDDDDD); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#00AA00, #DDDDDD); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#00AA00, #DDDDDD); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00AA00, #DDDDDD); /* Standard syntax */
+}
+#menu-esquerda ul li a.azul {
+  background: #0088FF; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#0088FF, #DDDDDD); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#0088FF, #DDDDDD); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#0088FF, #DDDDDD); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#0088FF, #DDDDDD); /* Standard syntax */
+}
+
+#menu-esquerda ul li a.vermelho {
+  background: #CC0000; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#CC0000, #DDDDDD); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#CC0000, #DDDDDD); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#CC0000, #DDDDDD); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#CC0000, #DDDDDD); /* Standard syntax */
+}
+
+#menu-esquerda ul li a.amarelo {
+  background: #EEE8AA; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#EEE8AA, #DDDDDD); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#EEE8AA, #DDDDDD); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#EEE8AA, #DDDDDD); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#EEE8AA, #DDDDDD); /* Standard syntax */
+}
+
 #middle {
   height: 300px;
+  font-size: 1vmax;
 }
 
 #middle:after {
@@ -41,9 +134,9 @@
 }
 
 #menu-esquerda,
-#menu-direita,
 #main {
   height: inherit;
+  padding: 2px 5px;
 }
 
 #menu-esquerda {
@@ -54,12 +147,6 @@
 
 #main {
   float: left;
-  width: 60%;
+  width: 80%;
   background-color: #BBB;
-}
-
-#menu-direita {
-  float: left;
-  width: 20%;
-  background-color: #555;
 }
