@@ -11,13 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SobreComponent = (function () {
     function SobreComponent() {
-        this.welcome = "TEMP";
     }
-    ;
     SobreComponent = __decorate([
         core_1.Component({
             selector: 'app-sobre',
-            template: "<h1>{{welcome}}</h1>"
+            templateUrl: './app/sobre/sobre.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], SobreComponent);
@@ -25,4 +23,4 @@ var SobreComponent = (function () {
 }());
 exports.SobreComponent = SobreComponent;
 ;
-//# sourceMappingURL=sobre.compoent.js.map
+//# sourceMappingURL=sobre.component.js.map

@@ -6,21 +6,23 @@
         <p>Adote. Contribua. Faça parte.</p>
     </div>
     <ul id="menu-header">
-        <li><a href="#">A Apata</a></li>
-        <li><a href="#">Cães & Gatos</a></li>
-        <li><a href="#">Como ajudar</a></li>
-        <li><a href="#">Perguntas frequentes</a></li>
+        <li><a routerLink="/sobre" routerLinkActive="active">A Apata</a></li>
+        <li><a>Cães & Gatos</a></li>
+        <li><a>Como ajudar</a></li>
+        <li><a>Perguntas</a></li>
     </ul>
 </div>
 <div id="middle">
     <div id="menu-esquerda">
         <ul>
-            <li><a href="#" class="verde"><span>A Apata</span></a></li>
-            <li><a href="#" class="azul"><span>Cães & Gatos</span></a></li>
-            <li><a href="#" class="vermelho"><span>Como ajudar</span></a></li>
-            <li><a href="#" class="amarelo"><span>Perguntas frequentes</span></a></li>
+            <li><a routerLink="/inicio" routerLinkActive="active" class="verde"><span>A Apata</span></a></li>
+            <li><a class="azul"><span>Cães & Gatos</span></a></li>
+            <li><a class="vermelho"><span>Como ajudar</span></a></li>
+            <li><a class="amarelo"><span>Perguntas frequentes</span></a></li>
         </ul>
     </div>
-    <div id="main">Conteúdo</div>
+    <div id="main">
+        <router-outlet></router-outlet>
+    </div>
 </div>
 <div id="footer">Rodapé</div>

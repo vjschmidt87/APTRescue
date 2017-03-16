@@ -16,7 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
+            selector: 'apata-app',
             templateUrl: '../../app.component.html',
         }), 
         __metadata('design:paramtypes', [])

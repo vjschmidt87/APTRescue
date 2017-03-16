@@ -6,12 +6,12 @@
 body {
   font-family: "Open Sans";
   font-size: 1.6vmax;
-  color: #333;
+  color: #858585;
 }
 
 a {
   text-decoration: none;
-  color: #333;
+  color: #858585;
 }
 
 #header, #footer {
@@ -50,21 +50,28 @@ a {
   margin: 0px;
 }
 
+#header ul#menu-header {
+  width: 80%;
+}
+
+#header ul#menu-header li {
+  width: 25%;
+}
+
+#header ul#menu-header li a {
+  width: 100%;
+}
+
 #header ul#menu-header li,
 #header ul#menu-header li a {
   padding: 0;
   overflow: hidden;
   float: left;
-}
-
-#header ul#menu-header li a {
-  min-width: 90px;
   height: 45px;
   padding: 3px;
   line-height: 39px;
-  font-size: 1vmax !important;
+  font-size: 1.2vmax !important;
   text-align: center;
-  
 }
 
 #header ul#menu-header li a:hover,
@@ -124,7 +131,7 @@ a {
 
 #middle {
   height: 300px;
-  font-size: 1vmax;
+  font-size: 1.2vmax;
 }
 
 #middle:after {
@@ -133,20 +140,38 @@ a {
   display: table;
 }
 
-#menu-esquerda,
-#main {
-  height: inherit;
-  padding: 2px 5px;
-}
-
 #menu-esquerda {
   float: left;
   width: 20%;
-  background-color: #555;
 }
 
 #main {
   float: left;
   width: 80%;
-  background-color: #BBB;
+  padding: 5px 10px;
+}
+
+#main h1 {
+  color: #C5C278;
+  font-size: 2.5vmax;
+}
+
+#main h2 {
+  font-size: 2vmax;
+  font-weight: normal;
+  color: #099;
+}
+
+#main h3 {
+  font-size: 1.7vmax;
+  color: #CF7E2C;
+  font-weight: normal;
+}
+
+#main p {
+  text-align: justify;
+}
+
+h1, h2, h3 {
+  font-family: Alice;
 }

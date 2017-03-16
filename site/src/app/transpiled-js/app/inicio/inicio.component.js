@@ -9,20 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SobreComponent = (function () {
-    function SobreComponent() {
-        this.welcome = "TEMP";
+var InicioComponent = (function () {
+    function InicioComponent() {
     }
-    ;
-    SobreComponent = __decorate([
+    InicioComponent = __decorate([
         core_1.Component({
-            selector: 'app-sobre',
-            template: "<h1>{{welcome}}</h1>"
+            selector: 'app-inicio',
+            templateUrl: './app/inicio/inicio.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], SobreComponent);
-    return SobreComponent;
+    ], InicioComponent);
+    return InicioComponent;
 }());
-exports.SobreComponent = SobreComponent;
+exports.InicioComponent = InicioComponent;
 ;
-//# sourceMappingURL=sobre.compoent.js.map
+//# sourceMappingURL=inicio.component.js.map
