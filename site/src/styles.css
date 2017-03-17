@@ -85,6 +85,13 @@ a {
   background: linear-gradient(to bottom right, #66CC00, #DDDDDD);
 }
 
+#header div#imagem-header {
+  float: left;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
 #menu-esquerda ul {
   width: 100%;
 }
@@ -194,5 +201,5 @@ hr {
     height: 5px;
     background-color: #66CC00;
     border: none;
-    margin-top: 0px;
+    margin: 0px;
 }

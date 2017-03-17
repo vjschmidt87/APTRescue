@@ -9,15 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var imagem_service_1 = require('../../app/imagem.service');
 var AdoteComponent = (function () {
-    function AdoteComponent() {
+    function AdoteComponent(imagemService) {
+        this.imagemService = imagemService;
+        this.imagemService.setUrlImagem("adote");
     }
     AdoteComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'app-adote',
-            templateUrl: './app/adote/adote.component.html'
+            templateUrl: '../../../../app/adote/adote.component.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [imagem_service_1.ImagemService])
     ], AdoteComponent);
     return AdoteComponent;
 }());

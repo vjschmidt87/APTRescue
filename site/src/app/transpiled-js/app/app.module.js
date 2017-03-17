@@ -10,6 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
+var imagem_service_1 = require('./imagem.service');
 var app_component_1 = require('./app.component');
 var inicio_component_1 = require('./inicio/inicio.component');
 var sobre_component_1 = require('./sobre/sobre.component');
@@ -23,6 +26,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                http_1.HttpModule,
                 app_routing_1.routing,
             ],
             declarations: [
@@ -30,8 +35,9 @@ var AppModule = (function () {
                 inicio_component_1.InicioComponent,
                 sobre_component_1.SobreComponent,
                 adote_component_1.AdoteComponent,
-                adotados_component_1.AdotadosComponent
+                adotados_component_1.AdotadosComponent,
             ],
+            providers: [imagem_service_1.ImagemService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

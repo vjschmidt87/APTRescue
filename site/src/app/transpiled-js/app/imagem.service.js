@@ -9,22 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var imagem_service_1 = require('../../app/imagem.service');
-var AdotadosComponent = (function () {
-    function AdotadosComponent(imagemService) {
-        this.imagemService = imagemService;
-        this.imagemService.setUrlImagem("adotados");
+require('rxjs/add/operator/toPromise');
+var ImagemService = (function () {
+    function ImagemService() {
+        this.url = "temp";
+        this.id = Math.floor(Math.random() * 600) + 1;
     }
-    AdotadosComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'app-adotados',
-            templateUrl: '../../../../app/adotados/adotados.component.html'
-        }), 
-        __metadata('design:paramtypes', [imagem_service_1.ImagemService])
-    ], AdotadosComponent);
-    return AdotadosComponent;
+    ImagemService.prototype.getId = function () {
+        return this.id;
+    };
+    ;
+    ImagemService.prototype.getImagem = function () {
+        return this.url;
+    };
+    ;
+    ImagemService.prototype.setUrlImagem = function (url) {
+        this.url = url;
+    };
+    ;
+    ImagemService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], ImagemService);
+    return ImagemService;
 }());
-exports.AdotadosComponent = AdotadosComponent;
-;
-//# sourceMappingURL=adotados.component.js.map
+exports.ImagemService = ImagemService;
+//# sourceMappingURL=imagem.service.js.map

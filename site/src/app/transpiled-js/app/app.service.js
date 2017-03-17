@@ -9,22 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var imagem_service_1 = require('../../app/imagem.service');
-var AdotadosComponent = (function () {
-    function AdotadosComponent(imagemService) {
-        this.imagemService = imagemService;
-        this.imagemService.setUrlImagem("adotados");
+var ImageService = (function () {
+    function ImageService() {
     }
-    AdotadosComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'app-adotados',
-            templateUrl: '../../../../app/adotados/adotados.component.html'
-        }), 
-        __metadata('design:paramtypes', [imagem_service_1.ImagemService])
-    ], AdotadosComponent);
-    return AdotadosComponent;
+    ImageService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], ImageService);
+    return ImageService;
 }());
-exports.AdotadosComponent = AdotadosComponent;
-;
-//# sourceMappingURL=adotados.component.js.map
+exports.ImageService = ImageService;
+//# sourceMappingURL=app.service.js.map

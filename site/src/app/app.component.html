@@ -8,13 +8,15 @@
     <ul id="menu-header">
         <li><a routerLink="/sobre" routerLinkActive="ativo">A Apata</a></li>
         <li><a routerLink="/adote" routerLinkActive="ativo">Adote</a></li>
-        <li><a>Adotados</a></li>
+        <li><a routerLink="/adotados" routerLinkActive="ativo">Adotados</a></li>
         <li><a>Produtos</a></li>
     </ul>
-    <div *ngIf="urlImagem != null">
-    <hr />
-    <img [src]="urlImagem" alt="Description" />
-    <hr />
+    <div *ngIf="imagemService.getImagem() != 'null'">
+        <hr />
+        <div id="imagem-header">
+            <img [src]="'./app/img/'+imagemService.getImagem()+'.jpg'" />
+        </div>
+        <hr />
     </div>
 </div>
 <div id="middle">
@@ -38,7 +40,6 @@
         </ul>
     </div>
     <div id="main">
-        {{urlImage}}
         <router-outlet></router-outlet>
     </div>
 </div>
