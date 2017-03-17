@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var AdoteComponent = (function () {
+    function AdoteComponent() {
     }
-    AppComponent = __decorate([
+    AdoteComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'apata-app',
-            templateUrl: '../../app.component.html',
+            selector: 'app-adote',
+            templateUrl: './app/adote/adote.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], AdoteComponent);
+    return AdoteComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.AdoteComponent = AdoteComponent;
 ;
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=adote.component.js.map

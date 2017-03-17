@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var AdotadosComponent = (function () {
+    function AdotadosComponent() {
     }
-    AppComponent = __decorate([
+    AdotadosComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'apata-app',
-            templateUrl: '../../app.component.html',
+            selector: 'app-adotados',
+            templateUrl: './app/adotados/adotados.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], AdotadosComponent);
+    return AdotadosComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.AdotadosComponent = AdotadosComponent;
 ;
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=adotados.component.js.map

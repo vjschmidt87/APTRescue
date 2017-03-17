@@ -6,22 +6,39 @@
         <p>Adote. Contribua. Faça parte.</p>
     </div>
     <ul id="menu-header">
-        <li><a routerLink="/sobre" routerLinkActive="active">A Apata</a></li>
-        <li><a>Cães & Gatos</a></li>
-        <li><a>Como ajudar</a></li>
-        <li><a>Perguntas</a></li>
+        <li><a routerLink="/sobre" routerLinkActive="ativo">A Apata</a></li>
+        <li><a routerLink="/adote" routerLinkActive="ativo">Adote</a></li>
+        <li><a>Adotados</a></li>
+        <li><a>Produtos</a></li>
     </ul>
+    <div *ngIf="urlImagem != null">
+    <hr />
+    <img [src]="urlImagem" alt="Description" />
+    <hr />
+    </div>
 </div>
 <div id="middle">
     <div id="menu-esquerda">
         <ul>
-            <li><a routerLink="/inicio" routerLinkActive="active" class="verde"><span>A Apata</span></a></li>
-            <li><a class="azul"><span>Cães & Gatos</span></a></li>
-            <li><a class="vermelho"><span>Como ajudar</span></a></li>
+            <li><a routerLink="/sobre" class="verde"><span>A Apata</span></a></li>
+            <li><a routerLink="/adote" class="azul"><span>Adote</span></a></li>
+            <li><a routerLink="/adotados" class="vermelho"><span>Adotados</span></a></li>
+            <li><a class="amarelo"><span>Produtos</span></a></li>
+            <li><a class="verde"><span>Como ajudar</span></a></li>
+            <li><a class="azul"><span>Cuidados básicos</span></a></li>
+            <li><a class="vermelho"><span>Eventos</span></a></li>
+            <li><a class="amarelo"><span>Seja voluntário</span></a></li>
+            <li><a class="verde"><span>Seja sócio</span></a></li>
+            <li><a class="azul"><span>Faça uma doação</span></a></li>
+            <li><a class="vermelho"><span>Denuncie maus tratos</span></a></li>
             <li><a class="amarelo"><span>Perguntas frequentes</span></a></li>
+            <li><a class="verde"><span>Legislação</span></a></li>
+            <li><a class="azul"><span>Contato</span></a></li>
+            <li><a class="vermelho"><span>Parceiros</span></a></li>
         </ul>
     </div>
     <div id="main">
+        {{urlImage}}
         <router-outlet></router-outlet>
     </div>
 </div>

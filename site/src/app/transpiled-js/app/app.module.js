@@ -13,6 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var inicio_component_1 = require('./inicio/inicio.component');
 var sobre_component_1 = require('./sobre/sobre.component');
+var adote_component_1 = require('./adote/adote.component');
+var adotados_component_1 = require('./adotados/adotados.component');
 var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
@@ -27,6 +29,8 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 inicio_component_1.InicioComponent,
                 sobre_component_1.SobreComponent,
+                adote_component_1.AdoteComponent,
+                adotados_component_1.AdotadosComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
@@ -35,4 +39,5 @@ var AppModule = (function () {
     return AppModule;
 }());
 exports.AppModule = AppModule;
+;
 //# sourceMappingURL=app.module.js.map

@@ -71,16 +71,26 @@ a {
   padding: 3px;
   line-height: 39px;
   font-size: 1.2vmax !important;
+  font-weight: bold;
   text-align: center;
 }
 
 #header ul#menu-header li a:hover,
-#header ul#menu-header li a .ativo {
-  background-color: #BBB;
+#header ul#menu-header li a.ativo {
+  color: #FFFFFF;
+  background: #66CC00; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #66CC00, #DDDDDD); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #66CC00, #DDDDDD); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #66CC00, #DDDDDD); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #66CC00, #DDDDDD);
 }
 
 #menu-esquerda ul {
   width: 100%;
+}
+
+#menu-esquerda ul li {
+  margin-bottom: 5px;
 }
 
 #menu-esquerda ul li a {
@@ -96,37 +106,39 @@ a {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+  font-weight: bold;
+  color: #FFFFFF;
 }
 
 #menu-esquerda ul li a.verde {
-  background: #00AA00; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#00AA00, #DDDDDD); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#00AA00, #DDDDDD); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#00AA00, #DDDDDD); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#00AA00, #DDDDDD); /* Standard syntax */
+  background: #8EC1B0; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #8EC1B0, #CCCCCC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #8EC1B0, #CCCCCC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #8EC1B0, #CCCCCC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #8EC1B0, #CCCCCC); /* Standard syntax */
 }
 #menu-esquerda ul li a.azul {
   background: #0088FF; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#0088FF, #DDDDDD); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#0088FF, #DDDDDD); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#0088FF, #DDDDDD); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#0088FF, #DDDDDD); /* Standard syntax */
+  background: -webkit-linear-gradient(left top, #0088FF, #CCCCCC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #0088FF, #CCCCCC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #0088FF, #CCCCCC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right,#0088FF, #CCCCCC); /* Standard syntax */
 }
 
 #menu-esquerda ul li a.vermelho {
-  background: #CC0000; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#CC0000, #DDDDDD); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#CC0000, #DDDDDD); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#CC0000, #DDDDDD); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#CC0000, #DDDDDD); /* Standard syntax */
+  background: #CF7E2C; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #CF7E2C, #CCCCCC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #CF7E2C, #CCCCCC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #CF7E2C, #CCCCCC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #CF7E2C, #CCCCCC); /* Standard syntax */
 }
 
 #menu-esquerda ul li a.amarelo {
-  background: #EEE8AA; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#EEE8AA, #DDDDDD); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#EEE8AA, #DDDDDD); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#EEE8AA, #DDDDDD); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#EEE8AA, #DDDDDD); /* Standard syntax */
+  background: #C5C278; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #C5C278, #CCCCCC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #C5C278, #CCCCCC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #C5C278, #CCCCCC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #C5C278, #CCCCCC); /* Standard syntax */
 }
 
 #middle {
@@ -174,4 +186,13 @@ a {
 
 h1, h2, h3 {
   font-family: Alice;
+}
+
+hr {
+    float: left;
+    width: 100%;
+    height: 5px;
+    background-color: #66CC00;
+    border: none;
+    margin-top: 0px;
 }
