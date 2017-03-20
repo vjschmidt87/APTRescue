@@ -7,23 +7,31 @@ body {
   font-family: "Open Sans";
   font-size: 1.6vmax;
   color: #858585;
+  max-width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  z-index: 5;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 a {
-  text-decoration: none;
-  color: #858585;
+  text-decoration: none !important;
+  color: inherit;
 }
 
 #header, #footer {
   float: left;
   width: 100%;
-  padding: 15px 0px 0px 5px;
+  padding-top: 15px;
 }
 
 #header div#logo {
   float: left;
   width: 40%;
   height: 216px;
+  margin-left: 15px;
   background-image: url('/app/img/logo.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -32,7 +40,7 @@ a {
 #header div#texto-header {
   float: right;
   text-align: right;
-  width: 60%;
+  width: 55%;
   height: 200px;
   padding: 40px 0px;
 }
@@ -153,7 +161,8 @@ a {
   font-size: 1.2vmax;
 }
 
-#middle:after {
+#middle:after,
+br {
   content: "";
   clear: both;
   display: table;
@@ -167,7 +176,7 @@ a {
 #main {
   float: left;
   width: 80%;
-  padding: 5px 10px;
+  padding: 5px;
 }
 
 #main h1 {
@@ -202,4 +211,31 @@ hr {
     background-color: #66CC00;
     border: none;
     margin: 0px;
+}
+
+div.preview {
+    float: right;
+    border-radius: 5px;
+    border: 2px solid #73AD21;
+    padding: 0px 5px; 
+    margin-bottom: 5px;
+    width: 49%;
+    height: 360px; 
+}
+
+div.preview:first-child {
+  float: left;
+}
+
+div.preview div.foto {
+  float: left;
+  height: 150px;
+  width: 100%;
+  margin-top: 5px;
+  overflow: hidden;
+}
+div.preview p {
+  width: 99%;
+  height: 198px;
+  overflow: hidden;
 }

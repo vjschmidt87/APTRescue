@@ -9,22 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var utils_service_1 = require('../../app/utils.service');
-var AdoteComponent = (function () {
-    function AdoteComponent(utilsService) {
-        this.utilsService = utilsService;
-        this.utilsService.setUrlImagem("adote");
+var ListaComponent = (function () {
+    function ListaComponent() {
     }
-    AdoteComponent = __decorate([
+    ListaComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'app-adote',
-            templateUrl: '../../../../app/adote/adote.component.html',
+            selector: 'app-lista-pets',
+            templateUrl: '../../../../app/lista-pets/lista.component.html'
         }), 
-        __metadata('design:paramtypes', [utils_service_1.UtilsService])
-    ], AdoteComponent);
-    return AdoteComponent;
+        __metadata('design:paramtypes', [])
+    ], ListaComponent);
+    return ListaComponent;
 }());
-exports.AdoteComponent = AdoteComponent;
+exports.ListaComponent = ListaComponent;
 ;
-//# sourceMappingURL=adote.component.js.map
+//# sourceMappingURL=lista.component.js.map

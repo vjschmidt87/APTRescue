@@ -1,5 +1,5 @@
 import {Component}          from '@angular/core';
-import { ImagemService }    from '../../app/imagem.service';
+import { UtilsService }    from '../../app/utils.service';
 
 @Component({
     moduleId: module.id,
@@ -7,7 +7,7 @@ import { ImagemService }    from '../../app/imagem.service';
     templateUrl: '../../../../app/sobre/sobre.component.html'
 })
 export class SobreComponent {
-    constructor(private imagemService: ImagemService) {
-        this.imagemService.setUrlImagem("sobre");
+    constructor(private utilsService: UtilsService) {
+        this.utilsService.setUrlImagem("sobre");
     }
 };

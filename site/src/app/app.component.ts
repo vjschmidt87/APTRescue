@@ -1,6 +1,6 @@
 import { Component }      from '@angular/core';
 
-import { ImagemService }  from './imagem.service';
+import { UtilsService }  from './utils.service';
 
 @Component({
   moduleId: module.id,
@@ -9,7 +9,9 @@ import { ImagemService }  from './imagem.service';
 
 })
 export class AppComponent {
-  constructor(private imagemService: ImagemService) {
-    this.imagemService.setUrlImagem("null");
+  
+  constructor(private utilsService: UtilsService) {
+    this.utilsService.setUrlImagem("null");
   }
+  
 };

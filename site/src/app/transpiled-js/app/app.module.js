@@ -12,12 +12,13 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
-var imagem_service_1 = require('./imagem.service');
+var utils_service_1 = require('./utils.service');
 var app_component_1 = require('./app.component');
 var inicio_component_1 = require('./inicio/inicio.component');
 var sobre_component_1 = require('./sobre/sobre.component');
 var adote_component_1 = require('./adote/adote.component');
 var adotados_component_1 = require('./adotados/adotados.component');
+var lista_component_1 = require('./lista-pets/lista.component');
 var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
@@ -36,8 +37,9 @@ var AppModule = (function () {
                 sobre_component_1.SobreComponent,
                 adote_component_1.AdoteComponent,
                 adotados_component_1.AdotadosComponent,
+                lista_component_1.ListaComponent,
             ],
-            providers: [imagem_service_1.ImagemService],
+            providers: [utils_service_1.UtilsService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

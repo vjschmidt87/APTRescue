@@ -11,32 +11,33 @@
         <li><a routerLink="/adotados" routerLinkActive="ativo">Adotados</a></li>
         <li><a>Produtos</a></li>
     </ul>
-    <div *ngIf="imagemService.getImagem() != 'null'">
+    <div *ngIf="utilsService.getUrlImagem() != 'null'">
         <hr />
         <div id="imagem-header">
-            <img [src]="'./app/img/'+imagemService.getImagem()+'.jpg'" />
+            <img [src]="'./app/img/'+utilsService.getUrlImagem()+'.jpg'" />
         </div>
         <hr />
     </div>
 </div>
 <div id="middle">
     <div id="menu-esquerda">
-        <ul>
-            <li><a routerLink="/sobre" class="verde"><span>A Apata</span></a></li>
-            <li><a routerLink="/adote" class="azul"><span>Adote</span></a></li>
-            <li><a routerLink="/adotados" class="vermelho"><span>Adotados</span></a></li>
-            <li><a class="amarelo"><span>Produtos</span></a></li>
-            <li><a class="verde"><span>Como ajudar</span></a></li>
-            <li><a class="azul"><span>Cuidados básicos</span></a></li>
-            <li><a class="vermelho"><span>Eventos</span></a></li>
-            <li><a class="amarelo"><span>Seja voluntário</span></a></li>
-            <li><a class="verde"><span>Seja sócio</span></a></li>
-            <li><a class="azul"><span>Faça uma doação</span></a></li>
-            <li><a class="vermelho"><span>Denuncie maus tratos</span></a></li>
-            <li><a class="amarelo"><span>Perguntas frequentes</span></a></li>
-            <li><a class="verde"><span>Legislação</span></a></li>
-            <li><a class="azul"><span>Contato</span></a></li>
-            <li><a class="vermelho"><span>Parceiros</span></a></li>
+        <ul id="menu">
+            <li><a routerLink="/sobre" [ngClass]="utilsService.getClasseMenu()"><span>A Apata</span></a></li>
+            <li><a routerLink="/adote" [ngClass]="utilsService.getClasseMenu()"><span>Adote</span></a></li>
+            <li><a routerLink="/adotados" [ngClass]="utilsService.getClasseMenu()"><span>Adotados</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>O que já fizemos</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Produtos</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Como ajudar</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Cuidados básicos</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Eventos</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Seja voluntário</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Seja sócio</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Faça uma doação</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Denuncie maus tratos</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Perguntas frequentes</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Legislação</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Contato</span></a></li>
+            <li><a [ngClass]="utilsService.getClasseMenu()"><span>Parceiros</span></a></li>
         </ul>
     </div>
     <div id="main">

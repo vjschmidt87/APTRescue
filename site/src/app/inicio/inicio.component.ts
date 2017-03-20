@@ -1,6 +1,6 @@
 import {Component }         from '@angular/core';
 
-import { ImagemService }    from '../../app/imagem.service';
+import { UtilsService }    from '../../app/utils.service';
 
 @Component({
     moduleId: module.id,
@@ -8,7 +8,7 @@ import { ImagemService }    from '../../app/imagem.service';
     templateUrl: '../../../../app/inicio/inicio.component.html'
 })
 export class InicioComponent {
-    constructor(private imagemService: ImagemService) {
-        this.imagemService.setUrlImagem("null");
+    constructor(private utilsService: UtilsService) {
+        this.utilsService.setUrlImagem("null");
     }
 };

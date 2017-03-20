@@ -9,11 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var imagem_service_1 = require('../../app/imagem.service');
+var utils_service_1 = require('../../app/utils.service');
 var AdotadosComponent = (function () {
-    function AdotadosComponent(imagemService) {
-        this.imagemService = imagemService;
-        this.imagemService.setUrlImagem("adotados");
+    function AdotadosComponent(utilsService) {
+        this.utilsService = utilsService;
+        this.utilsService.setUrlImagem("adotados");
     }
     AdotadosComponent = __decorate([
         core_1.Component({
@@ -21,7 +21,7 @@ var AdotadosComponent = (function () {
             selector: 'app-adotados',
             templateUrl: '../../../../app/adotados/adotados.component.html'
         }), 
-        __metadata('design:paramtypes', [imagem_service_1.ImagemService])
+        __metadata('design:paramtypes', [utils_service_1.UtilsService])
     ], AdotadosComponent);
     return AdotadosComponent;
 }());

@@ -1,6 +1,6 @@
 import {Component }         from '@angular/core';
 
-import { ImagemService }    from '../../app/imagem.service';
+import { UtilsService }    from '../../app/utils.service';
 
 @Component({
     moduleId: module.id,
@@ -10,7 +10,7 @@ import { ImagemService }    from '../../app/imagem.service';
 
 export class AdoteComponent {
 
-    constructor(private imagemService: ImagemService) {
-        this.imagemService.setUrlImagem("adote");
+    constructor(private utilsService: UtilsService) {
+        this.utilsService.setUrlImagem("adote");
     }
 };
