@@ -11,7 +11,7 @@
         <li><a routerLink="/adotados" routerLinkActive="ativo">Adotados</a></li>
         <li><a>Produtos</a></li>
     </ul>
-    <div *ngIf="utilsService.getUrlImagem() != 'null'">
+    <div *ngIf="utilsService.getUrlImagem() != null && utilsService.getUrlImagem() != 'null'">
         <hr />
         <div id="imagem-header">
             <img [src]="'./app/img/'+utilsService.getUrlImagem()+'.jpg'" />
