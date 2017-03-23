@@ -1,1 +1,0 @@
-{"version":3,"file":"lista.component.js","sourceRoot":"","sources":["../../../lista-pets/lista.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAiC,eAAe,CAAC,CAAA;AAOjD;IAAA;IACA,CAAC;IAND;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,gBAAgB;YAC1B,WAAW,EAAE,iDAAiD;SACjE,CAAC;;sBAAA;IAEF,qBAAC;AAAD,CAAC,AADD,IACC;AADY,sBAAc,iBAC1B,CAAA;AAAA,CAAC"}
