@@ -98,12 +98,14 @@ ul{
   display:none;
 }
 
-input[type="radio"] {
+input[type="radio"],
+input[type="checkbox"] {
   width: 15px !important;
   margin-left: 30px;
 }
 
-input[type="radio"]:first-of-type {
+input[type="radio"]:first-of-type,
+input[type="checkbox"] {
   margin-left: 0 !important;
 }
 

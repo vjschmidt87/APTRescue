@@ -82,9 +82,12 @@ function submitForm(e){
   var nome = getInputVal('nome');
   var foto = getInputVal('linkFoto');
   var especie = document.querySelector('input[name="especie"]:checked').value;
+  var sexo = document.querySelector('input[name="sexo"]:checked').value;
   var enderecoResgate = getInputVal('enderecoResgate');
   var voluntarioResgate = getInputVal('voluntarioResgate');
   var dataResgate = getInputVal('dataResgate');
+  var castrado = document.getElementById('castrado').checked;
+  var vacinado = document.getElementById('vacinado').checked;
   var status = document.querySelector('input[name="status"]:checked').value;
   var larTemporario = getInputVal('larTemporario');
   var motivoInternacao = getInputVal('motivoInternacao');
@@ -100,7 +103,7 @@ function submitForm(e){
   var cpfAdotante = getInputVal('cpfAdotante');
 
   // Save message
-  saveMessage(nome, foto, especie, enderecoResgate, voluntarioResgate, dataResgate, status,
+  saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, vacinado, status,
     larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, dadosTratamentos,
     dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante);
 
@@ -122,18 +125,21 @@ function getInputVal(id){
 }
 
 // Save message to firebase
-function saveMessage(nome, foto, especie, enderecoResgate, voluntarioResgate, dataResgate, status,
-    larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, dadosTratamentos,
-    dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
+function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, vacinado, status,
+  larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, dadosTratamentos,
+  dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
   var newMessageRef = messagesRef.push();
   var veterinario = status=="Internado" ? "Marildo" : "";
   newMessageRef.set({
     nome: nome,
     foto: foto,
     especie: especie,
+    sexo: sexo,
     enderecoResgate: enderecoResgate,
     voluntarioResgate: voluntarioResgate,
     dataResgate: dataResgate,
+    castrado: castrado,
+    vacinado: vacinado,
     status: status,
     larTemporario: larTemporario,
     motivoInternacao: motivoInternacao,
