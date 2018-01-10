@@ -80,7 +80,18 @@
             </p>
             <p class="full">
               <label>Diário de tratamentos</label>
-              <textarea name="dadosTratamentos" rows="5" id="dadosTratamentos"></textarea>
+              <ul id="tratamento-lista"></ul>
+          
+              <p>
+                <label>Data</label>
+                <input type="date" name="dataTratamento" id="dataTratamento">
+              </p>
+              <p>
+                <label>Dados</label>
+                <input type="text" id="dadosTratamento"/>
+              </p>
+              <label onclick="addItem()"><b>Inserir entrada</b></label>
+          
             </p>
           </div>
           <div id="internacaoBlock" class="full">

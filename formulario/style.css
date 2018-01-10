@@ -109,6 +109,22 @@ input[type="checkbox"] {
   margin-left: 0 !important;
 }
 
+ul#tratamento-lista li {
+  float: left;
+  width: 100%;
+}
+
+ul#tratamento-lista li p {
+  float: left;
+  width: 50%;
+  
+}
+
+ul#tratamento-lista li label {
+  float: right;
+  width: 50%;
+}
+
 div {
   width: 100%;
 }

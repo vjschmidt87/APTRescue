@@ -77,7 +77,6 @@ function setRequiredOnField(id, condition){
 // Submit form
 function submitForm(e){
   e.preventDefault();
-
   // Get values
   var nome = getInputVal('nome');
   var foto = getInputVal('linkFoto');
@@ -95,7 +94,12 @@ function submitForm(e){
   var valorInternacao = getInputVal('valorInternacao');
   var dataFalecimento = getInputVal("dataFalecimento"); 
   var causaMorte = getInputVal('causaMorte');
-  var dadosTratamentos = getInputVal('dadosTratamentos');
+  var ul = document.getElementById('tratamento-lista');
+  var li = ul.getElementsByTagName('li');
+  var listaTratamento = new Array();
+  for (var i = 0; i < li.length; i++) {
+    listaTratamento.push(li[i].getElementsByTagName('p')[0].innerText)
+  }
   var dataAdocao = getInputVal('dataAdocao');
   var nomeAdotante = getInputVal('nomeAdotante');
   var enderecoAdotante = getInputVal('enderecoAdotante');
@@ -104,7 +108,7 @@ function submitForm(e){
 
   // Save message
   saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, vacinado, status,
-    larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, dadosTratamentos,
+    larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, listaTratamento, 
     dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante);
 
   // Show alert
@@ -124,10 +128,28 @@ function getInputVal(id){
   return document.getElementById(id).value;
 }
 
+function addItem(){
+  var ul = document.getElementById("tratamento-lista");
+  var dados = document.getElementById("dataTratamento").value + '-' + document.getElementById("dadosTratamento").value;
+  var li = document.createElement("li");
+  li.setAttribute('id', dados);
+  li.insertAdjacentHTML('beforeend', '<p>' + dados+ '</p>');
+  li.insertAdjacentHTML('beforeend', '<label onClick="removeItem(\'' + dados + '\')"><b>Excluir entrada</b></label>');
+  ul.appendChild(li);
+  document.getElementById("dataTratamento").value = null;
+  document.getElementById("dadosTratamento").value = null;
+}
+
+function removeItem(liId){
+  var ul = document.getElementById("tratamento-lista");
+  var item = document.getElementById(liId);
+  ul.removeChild(item);
+}
+
 // Save message to firebase
 function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, vacinado, status,
-  larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, dadosTratamentos,
-  dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
+  larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, listaTratamento, dataAdocao, 
+  nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
   var newMessageRef = messagesRef.push();
   var veterinario = status=="Internado" ? "Marildo" : "";
   newMessageRef.set({
@@ -149,6 +171,7 @@ function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResga
     dataFalecimento: dataFalecimento,
     causaMorte: causaMorte,
     dadosTratamentos: dadosTratamentos,
+    listaTratamento: listaTratamento,
     dataAdocao: dataAdocao,
     nomeAdotante: nomeAdotante,
     enderecoAdotante: enderecoAdotante,
