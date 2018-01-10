@@ -109,18 +109,21 @@ input[type="checkbox"] {
   margin-left: 0 !important;
 }
 
-ul#tratamento-lista li {
+ul#tratamento-lista li,
+ul#vacinacao-lista li {
   float: left;
   width: 100%;
 }
 
-ul#tratamento-lista li p {
+ul#tratamento-lista li p,
+ul#vacinacao-lista li p {
   float: left;
   width: 50%;
   
 }
 
-ul#tratamento-lista li label {
+ul#tratamento-lista li label,
+ul#vacinacao-lista li label {
   float: right;
   width: 50%;
 }

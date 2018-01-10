@@ -86,7 +86,13 @@ function submitForm(e){
   var voluntarioResgate = getInputVal('voluntarioResgate');
   var dataResgate = getInputVal('dataResgate');
   var castrado = document.getElementById('castrado').checked;
-  var vacinado = document.getElementById('vacinado').checked;
+  var ulV = document.getElementById('vacinacao-lista');
+  var liV = ulV.getElementsByTagName('li');
+  var listaVacinas = new Array();
+  for (var i = 0; i < liV.length; i++) {
+    var str = liV[i].getElementsByTagName('p')[0].innerText;
+    listaVacinas.push({data:str.substring(0, str.indexOf(':')), dados:str.substring(str.indexOf(':'), str.length)};
+  }
   var status = document.querySelector('input[name="status"]:checked').value;
   var larTemporario = getInputVal('larTemporario');
   var motivoInternacao = getInputVal('motivoInternacao');
@@ -98,7 +104,8 @@ function submitForm(e){
   var li = ul.getElementsByTagName('li');
   var listaTratamento = new Array();
   for (var i = 0; i < li.length; i++) {
-    listaTratamento.push(li[i].getElementsByTagName('p')[0].innerText)
+    var str = li[i].getElementsByTagName('p')[0].innerText;
+    listaTratamento.push({data:str.substring(0, str.indexOf(':')), dados:str.substring(str.indexOf(':'), str.length)});
   }
   var dataAdocao = getInputVal('dataAdocao');
   var nomeAdotante = getInputVal('nomeAdotante');
@@ -107,7 +114,7 @@ function submitForm(e){
   var cpfAdotante = getInputVal('cpfAdotante');
 
   // Save message
-  saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, vacinado, status,
+  saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, listaVacinas, status,
     larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, listaTratamento, 
     dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante);
 
@@ -130,7 +137,7 @@ function getInputVal(id){
 
 function addItem(){
   var ul = document.getElementById("tratamento-lista");
-  var dados = document.getElementById("dataTratamento").value + '-' + document.getElementById("dadosTratamento").value;
+  var dados = document.getElementById("dataTratamento").value + ':' + document.getElementById("dadosTratamento").value;
   var li = document.createElement("li");
   li.setAttribute('id', dados);
   li.insertAdjacentHTML('beforeend', '<p>' + dados+ '</p>');
@@ -146,8 +153,26 @@ function removeItem(liId){
   ul.removeChild(item);
 }
 
+function addItemV(){
+  var ul = document.getElementById("vacinacao-lista");
+  var dados = document.getElementById("dataVacinacao").value + ':' + document.getElementById("dadosVacinacao").value;
+  var li = document.createElement("li");
+  li.setAttribute('id', dados);
+  li.insertAdjacentHTML('beforeend', '<p>' + dados+ '</p>');
+  li.insertAdjacentHTML('beforeend', '<label onClick="removeItemV(\'' + dados + '\')"><b>Excluir entrada</b></label>');
+  ul.appendChild(li);
+  document.getElementById("dataVacinacao").value = null;
+  document.getElementById("dadosVacinacao").value = null;
+}
+
+function removeItemV(liId){
+  var ul = document.getElementById("vacinacao-lista");
+  var item = document.getElementById(liId);
+  ul.removeChild(item);
+}
+
 // Save message to firebase
-function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, vacinado, status,
+function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, listaVacinas, status,
   larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, listaTratamento, dataAdocao, 
   nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
   var newMessageRef = messagesRef.push();
@@ -161,7 +186,7 @@ function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResga
     voluntarioResgate: voluntarioResgate,
     dataResgate: dataResgate,
     castrado: castrado,
-    vacinado: vacinado,
+    listaVacinas: listaVacinas,
     status: status,
     larTemporario: larTemporario,
     motivoInternacao: motivoInternacao,
@@ -170,7 +195,6 @@ function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResga
     valorInternacao: valorInternacao,
     dataFalecimento: dataFalecimento,
     causaMorte: causaMorte,
-    dadosTratamentos: dadosTratamentos,
     listaTratamento: listaTratamento,
     dataAdocao: dataAdocao,
     nomeAdotante: nomeAdotante,
