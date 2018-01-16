@@ -86,6 +86,7 @@ function submitForm(e){
   var enderecoResgate = getInputVal('enderecoResgate');
   var voluntarioResgate = getInputVal('voluntarioResgate');
   var dataResgate = getInputVal('dataResgate');
+  var observacaoResgate = getInputVal('observacao');
   var castrado = document.getElementById('castrado').checked;
   var cris = document.getElementById('cris').checked;
   var marildo = document.getElementById('marildo').checked;
@@ -94,7 +95,7 @@ function submitForm(e){
   var listaVacinas = new Array();
   for (var i = 0; i < liV.length; i++) {
     var str = liV[i].getElementsByTagName('p')[0].innerText;
-    listaVacinas.push({data:str.substring(0, str.indexOf(':')), dados:str.substring(str.indexOf(':'), str.length)});
+    listaVacinas.push({data:str});
   }
   var status = document.querySelector('input[name="status"]:checked').value;
   var larTemporario = getInputVal('larTemporario');
@@ -117,9 +118,9 @@ function submitForm(e){
   var cpfAdotante = getInputVal('cpfAdotante');
 
   // Save message
-  saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, cris, marildo,
-    listaVacinas, status, larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, 
-    listaTratamento, dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante);
+  saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, observacaoResgate,
+    castrado, cris, marildo, listaVacinas, status, larTemporario, motivoInternacao, dataInternacao, valorInternacao,
+    dataFalecimento, causaMorte, listaTratamento, dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante);
 
   // Show alert
   document.querySelector('.alert').style.display = 'block';
@@ -140,11 +141,12 @@ function getInputVal(id){
 
 function addItem(){
   var ul = document.getElementById("tratamento-lista");
-  var dados = document.getElementById("dataTratamento").value + ':' + document.getElementById("dadosTratamento").value;
+  var dados = document.getElementById("dataTratamento").value + ' : ' + document.getElementById("dadosTratamento").value;
+  var id = document.getElementById("dataTratamento").value + ':' + document.getElementById("dadosTratamento").value;
   var li = document.createElement("li");
-  li.setAttribute('id', dados);
+  li.setAttribute('id', id);
   li.insertAdjacentHTML('beforeend', '<p>' + dados+ '</p>');
-  li.insertAdjacentHTML('beforeend', '<label onClick="removeItem(\'' + dados + '\')"><b>Excluir entrada</b></label>');
+  li.insertAdjacentHTML('beforeend', '<label onClick="removeItem(\'' + id + '\')"><b>Excluir entrada</b></label>');
   ul.appendChild(li);
   document.getElementById("dataTratamento").value = null;
   document.getElementById("dadosTratamento").value = null;
@@ -158,14 +160,13 @@ function removeItem(liId){
 
 function addItemV(){
   var ul = document.getElementById("vacinacao-lista");
-  var dados = document.getElementById("dataVacinacao").value + ':' + document.getElementById("dadosVacinacao").value;
+  var dados = document.getElementById("dataVacinacao").value;
   var li = document.createElement("li");
   li.setAttribute('id', dados);
   li.insertAdjacentHTML('beforeend', '<p>' + dados+ '</p>');
   li.insertAdjacentHTML('beforeend', '<label onClick="removeItemV(\'' + dados + '\')"><b>Excluir entrada</b></label>');
   ul.appendChild(li);
   document.getElementById("dataVacinacao").value = null;
-  document.getElementById("dadosVacinacao").value = null;
 }
 
 function removeItemV(liId){
@@ -175,9 +176,9 @@ function removeItemV(liId){
 }
 
 // Save message to firebase
-function saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, cris, marildo,
-  listaVacinas, status, larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, 
-  listaTratamento, dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
+function saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, observacaoResgate,
+  castrado, cris, marildo, listaVacinas, status, larTemporario, motivoInternacao, dataInternacao, valorInternacao,
+  dataFalecimento, causaMorte, listaTratamento, dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
   var newMessageRef = messagesRef.push();
   newMessageRef.set({
     codigo: codigo,
@@ -188,6 +189,7 @@ function saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, volunta
     enderecoResgate: enderecoResgate,
     voluntarioResgate: voluntarioResgate,
     dataResgate: dataResgate,
+    observacaoResgate: observacaoResgate,
     castrado: castrado,
     cris: cris,
     marildo: marildo,

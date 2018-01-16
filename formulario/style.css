@@ -18,6 +18,8 @@ body{
 }
 
 ul{
+  float: left;
+  width: 100%;
   list-style: none;
   padding:0;
 }
@@ -118,14 +120,14 @@ ul#vacinacao-lista li {
 ul#tratamento-lista li p,
 ul#vacinacao-lista li p {
   float: left;
-  width: 50%;
+  width: 48%;
   
 }
 
 ul#tratamento-lista li label,
 ul#vacinacao-lista li label {
   float: right;
-  width: 50%;
+  width: 48%;
 }
 
 div {
@@ -160,4 +162,15 @@ div {
   .company-info h3, .company-info ul, .brand{
     text-align: left;
   }
+}
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=date] {
+  height: 43px;
 }

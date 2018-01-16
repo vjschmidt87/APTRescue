@@ -64,6 +64,10 @@
             <label>Data do regate</label>
             <input type="date" name="dataResgate" id="dataResgate" required>
           </p>
+          <p class="full">
+            <label>Observação sobre o regate</label>
+            <input type="text" name="observacao" id="observacao">
+          </p>
           <p>
             <input type="checkbox" name="castrado" id="castrado"> Castrado
           </p>
@@ -82,14 +86,8 @@
             <ul id="vacinacao-lista"></ul>
           </p>
           <p class="full">
-            <p>
-              <label>Data</label>
-              <input type="date" name="dataVacinacao" id="dataVacinacao">
-            </p>
-            <p>
-              <label>Vacina</label>
-              <input type="text" name="dadosVacinacao" id="dadosVacinacao"/>
-            </p>
+            <label>Data</label>
+            <input type="date" name="dataVacinacao" id="dataVacinacao">
             <label onclick="addItemV()"><b>Inserir entrada</b></label>
           </p>
           <p class="full">
@@ -104,7 +102,7 @@
               <label>Lar temporário</label>
               <input type="text" name="larTemporario" id="larTemporario" required>
             </p>
-            
+            <br />
             <p class="full">
               <label>Diário de tratamentos</label>
               <ul id="tratamento-lista"></ul>
