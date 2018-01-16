@@ -132,6 +132,20 @@ div {
   width: 100%;
 }
 
+.left-p {
+  float: left;
+  width: 48%;
+}
+
+.right-p {
+  float: right;
+  width: 48%;
+}
+
+.clear {
+  clear: both;
+}
+
 /* LARGE SCREENS */
 @media(min-width:700px){
   .wrapper{

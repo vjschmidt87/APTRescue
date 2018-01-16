@@ -4,7 +4,7 @@ document.getElementById('contactForm').addEventListener('submit', submitForm);
 document.getElementById("larTemporarioBlock").style.display='block';
 document.getElementById("internacaoBlock").style.display='none';
 document.getElementById("adocaoBlock").style.display='none';
-document.getElementById("morteBlock").style.display='none';
+document.getElementById("obitoBlock").style.display='none';
 
 function setRequired(cValue) {
   if(cValue == "Lar Temporário") { 
@@ -21,7 +21,7 @@ function setRequired(cValue) {
       document.getElementById("larTemporarioBlock").style.display='block';
       document.getElementById("internacaoBlock").style.display='none';
       document.getElementById("adocaoBlock").style.display='none';
-      document.getElementById("morteBlock").style.display='none';
+      document.getElementById("obitoBlock").style.display='none';
   } else if(cValue == "Internado") { 
       setRequiredOnField("larTemporario", false); 
       setRequiredOnField("motivoInternacao", true); 
@@ -36,7 +36,7 @@ function setRequired(cValue) {
       document.getElementById("larTemporarioBlock").style.display='block';
       document.getElementById("internacaoBlock").style.display='block';
       document.getElementById("adocaoBlock").style.display='none';
-      document.getElementById("morteBlock").style.display='none';
+      document.getElementById("obitoBlock").style.display='none';
   } else if(cValue == "Adotado") { 
       setRequiredOnField("larTemporario", false); 
       setRequiredOnField("motivoInternacao", false); 
@@ -51,7 +51,7 @@ function setRequired(cValue) {
       document.getElementById("larTemporarioBlock").style.display='block';
       document.getElementById("internacaoBlock").style.display='none';
       document.getElementById("adocaoBlock").style.display='block';
-      document.getElementById("morteBlock").style.display='none';
+      document.getElementById("obitoBlock").style.display='none';
   } else { 
       setRequiredOnField("larTemporario", false); 
       setRequiredOnField("motivoInternacao", false); 
@@ -66,7 +66,7 @@ function setRequired(cValue) {
       document.getElementById("larTemporarioBlock").style.display='block';
       document.getElementById("internacaoBlock").style.display='none';
       document.getElementById("adocaoBlock").style.display='none';
-      document.getElementById("morteBlock").style.display='block';
+      document.getElementById("obitoBlock").style.display='block';
   }
 }
 
@@ -78,6 +78,7 @@ function setRequiredOnField(id, condition){
 function submitForm(e){
   e.preventDefault();
   // Get values
+  var codigo = getInputVal('codigo');
   var nome = getInputVal('nome');
   var foto = getInputVal('linkFoto');
   var especie = document.querySelector('input[name="especie"]:checked').value;
@@ -86,12 +87,14 @@ function submitForm(e){
   var voluntarioResgate = getInputVal('voluntarioResgate');
   var dataResgate = getInputVal('dataResgate');
   var castrado = document.getElementById('castrado').checked;
+  var cris = document.getElementById('cris').checked;
+  var marildo = document.getElementById('marildo').checked;
   var ulV = document.getElementById('vacinacao-lista');
   var liV = ulV.getElementsByTagName('li');
   var listaVacinas = new Array();
   for (var i = 0; i < liV.length; i++) {
     var str = liV[i].getElementsByTagName('p')[0].innerText;
-    listaVacinas.push({data:str.substring(0, str.indexOf(':')), dados:str.substring(str.indexOf(':'), str.length)};
+    listaVacinas.push({data:str.substring(0, str.indexOf(':')), dados:str.substring(str.indexOf(':'), str.length)});
   }
   var status = document.querySelector('input[name="status"]:checked').value;
   var larTemporario = getInputVal('larTemporario');
@@ -114,9 +117,9 @@ function submitForm(e){
   var cpfAdotante = getInputVal('cpfAdotante');
 
   // Save message
-  saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, listaVacinas, status,
-    larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, listaTratamento, 
-    dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante);
+  saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, cris, marildo,
+    listaVacinas, status, larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, 
+    listaTratamento, dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante);
 
   // Show alert
   document.querySelector('.alert').style.display = 'block';
@@ -172,12 +175,12 @@ function removeItemV(liId){
 }
 
 // Save message to firebase
-function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, listaVacinas, status,
-  larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, listaTratamento, dataAdocao, 
-  nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
+function saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, castrado, cris, marildo,
+  listaVacinas, status, larTemporario, motivoInternacao, dataInternacao, valorInternacao, dataFalecimento, causaMorte, 
+  listaTratamento, dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
   var newMessageRef = messagesRef.push();
-  var veterinario = status=="Internado" ? "Marildo" : "";
   newMessageRef.set({
+    codigo: codigo,
     nome: nome,
     foto: foto,
     especie: especie,
@@ -186,6 +189,8 @@ function saveMessage(nome, foto, especie, sexo, enderecoResgate, voluntarioResga
     voluntarioResgate: voluntarioResgate,
     dataResgate: dataResgate,
     castrado: castrado,
+    cris: cris,
+    marildo: marildo,
     listaVacinas: listaVacinas,
     status: status,
     larTemporario: larTemporario,

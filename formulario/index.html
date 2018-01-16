@@ -29,12 +29,16 @@
             <label>Dados do animal</label>
           </p>
           <p>
+            <label>Código</label>
+            <input type="number" name="codigo" id="codigo" required>
+          </p>
+          <p>
             <label>Nome</label>
             <input type="text" name="nome" id="nome" required>
           </p>
-          <p>
+          <p class="full">
             <label>Link foto</label>
-            <input type="text" name="linkFoto" id="linkFoto" required>
+            <input type="text" name="linkFoto" id="linkFoto">
           </p>
           <p class="full">
             <label>Espécie</label>
@@ -64,9 +68,20 @@
             <input type="checkbox" name="castrado" id="castrado"> Castrado
           </p>
           <p class="full">
+            <label>Veterinários que trataram</label>
+          </p>
+          <p>
+            <input type="checkbox" name="cris" id="cris"> Cris
+          </p>
+          <p>
+            <input type="checkbox" name="marildo" id="marildo"> Marildo
+          </p>
+
+          <p class="full">
             <label>Carteira de vacinação</label>
             <ul id="vacinacao-lista"></ul>
-        
+          </p>
+          <p class="full">
             <p>
               <label>Data</label>
               <input type="date" name="dataVacinacao" id="dataVacinacao">
@@ -82,73 +97,83 @@
             <input type="radio" name="status" value="Lar Temporário" onmouseup="setRequired(event.target.value)" checked="checked" /> Lar Temporário
             <input type="radio" name="status" value="Internado"  onmouseup="setRequired(event.target.value)"/> Internado
             <input type="radio" name="status" value="Adotado"  onmouseup="setRequired(event.target.value)"/> Adotado
-            <input type="radio" name="status" value="Falecido"  onmouseup="setRequired(event.target.value)"/> Falecido
+            <input type="radio" name="status" value="Óbito"  onmouseup="setRequired(event.target.value)"/> Óbito
           </p>
           <div id="larTemporarioBlock" class="full">
             <p class="full">
               <label>Lar temporário</label>
               <input type="text" name="larTemporario" id="larTemporario" required>
             </p>
+            
             <p class="full">
               <label>Diário de tratamentos</label>
               <ul id="tratamento-lista"></ul>
-          
-              <p>
+            </p>
+            <p>
+              <p class="left-p">
                 <label>Data</label>
                 <input type="date" name="dataTratamento" id="dataTratamento">
               </p>
-              <p>
+              <p class="right-p">
                 <label>Dados</label>
                 <input type="text" name="dadosTratamento" id="dadosTratamento"/>
               </p>
+              <br class="clear" />
               <label onclick="addItem()"><b>Inserir entrada</b></label>
             </p>
+            
+            
           </div>
           <div id="internacaoBlock" class="full">
+            <p class="left-p">
+              <label>Data da internação</label>
+              <input type="date" name="dataInternacao" id="dataInternacao">
+              
+            </p>
+            <p class="right-p">
+              <label>Valor internação</label>
+              <input type="number" name="valorInternacao" id="valorInternacao">
+            </p>
+            <br class="clear" />
             <p>
               <label>Motivo internação</label>
               <input type="text" name="motivoInternacao" id="motivoInternacao">
             </p>
-            <p>
-              <label>Data da internação</label>
-              <input type="date" name="dataInternacao" id="dataInternacao">
-            </p>
-            <p>
-              <label>Valor internação</label>
-              <input type="number" name="valorInternacao" id="valorInternacao">
-            </p>
           </div>
           <div id="adocaoBlock" class="full">
-            <p class="full">
+            <p class="left-p">
               <label>Data da adoção</label>
               <input type="date" name="dataAdocao" id="dataAdocao">
             </p>
-            <p>
+            <p class="right-p">
               <label>Nome do adotante</label>
               <input type="text" name="nomeAdotante" id="nomeAdotante">
             </p>
+            <br class="clear" />
+            <p class="left-p">
+              <label>Telefone do adotante</label>
+              <input type="number" name="telefoneAdotante" id="telefoneAdotante">
+            </p>
+            <p class="right-p">
+              <label>CPF do adotante</label>
+              <input type="number" name="cpfAdotante" id="cpfAdotante">
+            </p>
+            <br class="clear" />
             <p>
               <label>Endereço do adotante</label>
               <input type="text" name="enderecoAdotante" id="enderecoAdotante">
             </p>
-            <p>
-              <label>Telefone do adotante</label>
-              <input type="number" name="telefoneAdotante" id="telefoneAdotante">
-            </p>
-            <p>
-              <label>CPF do adotante</label>
-              <input type="number" name="cpfAdotante" id="cpfAdotante">
-            </p>
           </div>
-          <div id="morteBlock" class="full">
-              <p>
-                <label>Data do falecimento</label>
-                <input type="date" name="dataFalecimento" id="dataFalecimento">
-              </p>
-            <p>
-              <label>Causa da morte</label>
+          <div id="obitoBlock" class="full">
+            <p class="left-p">
+              <label>Data do óbito</label>
+              <input type="date" name="dataFalecimento" id="dataFalecimento">
+            </p>
+            <p class="right-p">
+              <label>Causa do óbito</label>
               <input type="text" name="causaMorte" id="causaMorte">
             </p>
+            <br class="clear" />
           </div>
           <p class="full">
             <button type="submit">Salvar</button>
