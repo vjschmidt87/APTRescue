@@ -1,6 +1,6 @@
 {
 	"hosting": {
-		"public": "site/src/app/transpiled-js",
+		"public": "dist/",
 		"ignore": ["firebase.json"]
 	}
 }
