@@ -1,0 +1,117 @@
+
+<html>
+
+    <head>
+        <title>Firebase Real time DATABASE WEB</title>
+        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            //change settings for your firebase project
+            var config = {
+                apiKey: "AIzaSyAbntSAQaBuehw8pv38yj_inPoPWkt-tkE",
+                authDomain: "aptrescue-2018.firebaseapp.com",
+                databaseURL: "https://aptrescue-2018.firebaseio.com",
+                projectId: "aptrescue-2018",
+                storageBucket: "aptrescue-2018.appspot.com",
+                messagingSenderId: "1095674684978"
+              };
+            firebase.initializeApp(config);
+        </script>
+    </head>
+    
+    <body>
+        <table>
+            <tr>
+                <td>ID: </td>
+                <td><input type="text" name="id" id="user_id"></td>
+            </tr>
+            <tr>
+                <td>Nome do Usuario: </td>
+                <td><input type="text" name="user_name" id="user_name"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Salvar" onclick="save_user();">
+                    <input type="button" value="Atualizar" onclick="update_user();">
+                </td>
+            </tr>
+        </table>
+    
+        <h3>Lista de Usuários</h3>
+    
+        <table id="tbl_users_list" border="1">
+            <tr>
+                <td>#ID</td>
+                <td>Nome</td>
+            </tr>
+        </table>
+    
+        <script>
+            var tblUsers = document.getElementById('tbl_users_list');
+            
+
+
+            var databaseRef = firebase.database().ref('users/');
+            //var databaseRef = FirebaseFirestore.database().ref('/users');
+            var rowindex = 1;
+    
+            databaseRef.once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+    
+                    var childKey = childSnapshot.key;
+                    var childData = childSnapshot.val();
+    
+                    var row = tblUsers.insertRow(rowindex);
+                    var cellId = row.insertCell(0);
+                    var cellName = row.insertCell(1);
+                    //cellId.appendChild(document.createTextNode(childKey));
+                    cellId.appendChild(document.createTextNode(childData.user_id));
+                    cellName.appendChild(document.createTextNode(childData.user_name));
+    
+                    rowindex = rowindex + 1;
+    
+                });
+            });
+    
+            function save_user() {
+                var user_name = document.getElementById('user_name').value;
+                var uid = firebase.database().ref().child('users').push().key;
+    
+                var data = {
+                    user_id: uid,
+                    user_name: user_name
+                }
+    
+                var updates = {};
+                updates['/users/' + uid] = data;
+                firebase.database().ref().update(updates);
+    
+                alert('usuário criado com sucesso');
+    
+                reload_page();
+            }
+    
+            function update_user() {
+                var uid = document.getElementById('user_id').value;
+                var user_name = document.getElementById('user_name').value;
+                var data = {
+                    user_id: uid,
+                    user_name: user_name
+                }
+    
+                var updates = {};
+                updates['/users/' + uid] = data;
+                firebase.database().ref().update(updates);
+    
+                alert('usuário atualizado com sucesso');
+    
+                reload_page();
+            }
+    
+            function reload_page() {
+                window.location.reload();
+            }
+        </script>
+    </body>
+    
+    </html>

@@ -198,7 +198,6 @@ function saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, volunta
     larTemporario: larTemporario,
     motivoInternacao: motivoInternacao,
     dataInternacao: dataInternacao,
-    veterinario: veterinario,
     valorInternacao: valorInternacao,
     dataFalecimento: dataFalecimento,
     causaMorte: causaMorte,
@@ -209,4 +208,8 @@ function saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, volunta
     telefoneAdotante: telefoneAdotante,
     cpfAdotante: cpfAdotante
   });
+}
+
+function listTemp() {
+  alert(firebase.database().ref('animais.json'));
 }
