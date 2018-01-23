@@ -109,7 +109,7 @@ function submitForm(e){
   var listaTratamento = new Array();
   for (var i = 0; i < li.length; i++) {
     var str = li[i].getElementsByTagName('p')[0].innerText;
-    listaTratamento.push({data:str.substring(0, str.indexOf(':')), dados:str.substring(str.indexOf(':'), str.length)});
+    listaTratamento.push({data:str.substring(0, str.indexOf(':')), dados:str.substring(str.indexOf(':') + 2, str.length)});
   }
   var dataAdocao = getInputVal('dataAdocao');
   var nomeAdotante = getInputVal('nomeAdotante');
@@ -117,70 +117,7 @@ function submitForm(e){
   var telefoneAdotante = getInputVal('telefoneAdotante');
   var cpfAdotante = getInputVal('cpfAdotante');
 
-  // Save message
-  saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, observacaoResgate,
-    castrado, cris, marildo, listaVacinas, status, larTemporario, motivoInternacao, dataInternacao, valorInternacao,
-    dataFalecimento, causaMorte, listaTratamento, dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante);
-
-  // Show alert
-  document.querySelector('.alert').style.display = 'block';
-
-  // Hide alert after 3 seconds
-  setTimeout(function(){
-    document.querySelector('.alert').style.display = 'none';
-  },3000);
-
-  // Clear form
-  document.getElementById('contactForm').reset();
-}
-
-// Function to get get form values
-function getInputVal(id){
-  return document.getElementById(id).value;
-}
-
-function addItem(){
-  var ul = document.getElementById("tratamento-lista");
-  var dados = document.getElementById("dataTratamento").value + ' : ' + document.getElementById("dadosTratamento").value;
-  var id = document.getElementById("dataTratamento").value + ':' + document.getElementById("dadosTratamento").value;
-  var li = document.createElement("li");
-  li.setAttribute('id', id);
-  li.insertAdjacentHTML('beforeend', '<p>' + dados+ '</p>');
-  li.insertAdjacentHTML('beforeend', '<label onClick="removeItem(\'' + id + '\')"><b>Excluir entrada</b></label>');
-  ul.appendChild(li);
-  document.getElementById("dataTratamento").value = null;
-  document.getElementById("dadosTratamento").value = null;
-}
-
-function removeItem(liId){
-  var ul = document.getElementById("tratamento-lista");
-  var item = document.getElementById(liId);
-  ul.removeChild(item);
-}
-
-function addItemV(){
-  var ul = document.getElementById("vacinacao-lista");
-  var dados = document.getElementById("dataVacinacao").value;
-  var li = document.createElement("li");
-  li.setAttribute('id', dados);
-  li.insertAdjacentHTML('beforeend', '<p>' + dados+ '</p>');
-  li.insertAdjacentHTML('beforeend', '<label onClick="removeItemV(\'' + dados + '\')"><b>Excluir entrada</b></label>');
-  ul.appendChild(li);
-  document.getElementById("dataVacinacao").value = null;
-}
-
-function removeItemV(liId){
-  var ul = document.getElementById("vacinacao-lista");
-  var item = document.getElementById(liId);
-  ul.removeChild(item);
-}
-
-// Save message to firebase
-function saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, voluntarioResgate, dataResgate, observacaoResgate,
-  castrado, cris, marildo, listaVacinas, status, larTemporario, motivoInternacao, dataInternacao, valorInternacao,
-  dataFalecimento, causaMorte, listaTratamento, dataAdocao, nomeAdotante, enderecoAdotante, telefoneAdotante, cpfAdotante){
-  var newMessageRef = messagesRef.push();
-  newMessageRef.set({
+  var data = {
     codigo: codigo,
     nome: nome,
     foto: foto,
@@ -207,7 +144,71 @@ function saveMessage(codigo, nome, foto, especie, sexo, enderecoResgate, volunta
     enderecoAdotante: enderecoAdotante,
     telefoneAdotante: telefoneAdotante,
     cpfAdotante: cpfAdotante
-  });
+  }
+
+  // Save message
+  saveMessage(data);
+
+  // Show alert
+  document.querySelector('.alert').style.display = 'block';
+
+  // Hide alert after 3 seconds
+  setTimeout(function(){
+    document.querySelector('.alert').style.display = 'none';
+  },3000);
+
+  // Clear form
+  document.getElementById('contactForm').reset();
+}
+
+// Function to get get form values
+function getInputVal(id){
+  return document.getElementById(id).value;
+}
+
+function addItem(){
+  var ul = document.getElementById("tratamento-lista");
+  var dados = document.getElementById("dataTratamento").value + ' : ' + document.getElementById("dadosTratamento").value;
+  var id = document.getElementById("dataTratamento").value + ':' + document.getElementById("dadosTratamento").value;
+  var li = document.createElement("li");
+  li.setAttribute('id', id);
+  li.insertAdjacentHTML('beforeend', '<p>' + dados + '</p>');
+  li.insertAdjacentHTML('beforeend', '<label onClick="removeItem(\'' + id + '\')"><b>Excluir entrada</b></label>');
+  ul.appendChild(li);
+  document.getElementById("dataTratamento").value = null;
+  document.getElementById("dadosTratamento").value = null;
+}
+
+function removeItem(liId){
+  var ul = document.getElementById("tratamento-lista");
+  var item = document.getElementById(liId);
+  ul.removeChild(item);
+}
+
+function addItemV(){
+  var ul = document.getElementById("vacinacao-lista");
+  var dados = document.getElementById("dataVacinacao").value;
+  var li = document.createElement("li");
+  li.setAttribute('id', dados);
+  li.insertAdjacentHTML('beforeend', '<p>' + dados + '</p>');
+  li.insertAdjacentHTML('beforeend', '<label onClick="removeItemV(\'' + dados + '\')"><b>Excluir entrada</b></label>');
+  ul.appendChild(li);
+  document.getElementById("dataVacinacao").value = null;
+}
+
+function removeItemV(liId){
+  var ul = document.getElementById("vacinacao-lista");
+  var item = document.getElementById(liId);
+  ul.removeChild(item);
+}
+
+// Save message to firebase
+function saveMessage(data){
+  //var newMessageRef = messagesRef.push();
+  //newMessageRef.set(data);
+  var updates = {};
+  updates['/users/' + uid] = data;
+  firebase.database().ref().update(updates);
 }
 
 function listTemp() {

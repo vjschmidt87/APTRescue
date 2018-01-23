@@ -9,181 +9,181 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
-    <h1 class="brand">Cadastros de animais resgatados</h1>
-    <div class="wrapper">
-      <div class="company-info">
-        <h3>Aqui vai ter um menu pras oções de incluir editar e excluir dados, pensei em depois expandir pra cadastrar dados de lares e de voluntários</h3>
-        <ul>
-          <li>Incluir</li>
-          <li>Editar</li>
-          <li onclick="listTemp()">Listar</li>
-        </ul>
-      </div>
-      <div class="contact">
-        <h3>Cadastrar animal</h3>
-        <div class="alert">Dados cadastrados com sucesso!</div>
-        <form id="contactForm">
-          <p class="full">
-            <label>Dados do animal</label>
-          </p>
-          <p>
-            <label>Código</label>
-            <input type="number" name="codigo" id="codigo" required>
-          </p>
-          <p>
-            <label>Nome</label>
-            <input type="text" name="nome" id="nome" required>
-          </p>
-          <p class="full">
-            <label>Link foto</label>
-            <input type="text" name="linkFoto" id="linkFoto">
-          </p>
-          <p class="full">
-            <label>Espécie</label>
-            <input type="radio" name="especie" value="Cachorro" checked="checked" /> Cachorro
-            <input type="radio" name="especie" value="Gato" /> Gato
-            <input type="radio" name="especie" value="Outro" /> Outro
-          </p>
-          <p class="full">
-            <label>Sexo</label>
-            <input type="radio" name="sexo" value="Macho" checked="checked" /> Macho
-            <input type="radio" name="sexo" value="Fêmea" /> Fêmea
-            <input type="radio" name="sexo" value="Indeterminado" /> Indeterminado
-          </p>
-          <p>
-            <label>Endereço do resgate</label>
-            <input type="text" name="enderecoResgate" id="enderecoResgate" required>
-          </p>
-          <p>
-            <label>Voluntário que resgatou</label>
-            <input type="text" name="voluntarioResgate" id="voluntarioResgate" required>
-          </p>
-          <p class="full">
-            <label>Data do regate</label>
-            <input type="date" name="dataResgate" id="dataResgate" required>
-          </p>
-          <p class="full">
-            <label>Observação sobre o regate</label>
-            <input type="text" name="observacao" id="observacao">
-          </p>
-          <p>
-            <input type="checkbox" name="castrado" id="castrado"> Castrado
-          </p>
-          <p class="full">
-            <label>Veterinários que trataram</label>
-          </p>
-          <p>
-            <input type="checkbox" name="cris" id="cris"> Cris
-          </p>
-          <p>
-            <input type="checkbox" name="marildo" id="marildo"> Marildo
-          </p>
-
-          <p class="full">
-            <label>Carteira de vacinação</label>
-            <ul id="vacinacao-lista"></ul>
-          </p>
-          <p class="full">
-            <label>Data</label>
-            <input type="date" name="dataVacinacao" id="dataVacinacao">
-            <label onclick="addItemV()"><b>Inserir entrada</b></label>
-          </p>
-          <p class="full">
-            <label>Status</label>
-            <input type="radio" name="status" value="Lar Temporário" onmouseup="setRequired(event.target.value)" checked="checked" /> Lar Temporário
-            <input type="radio" name="status" value="Internado"  onmouseup="setRequired(event.target.value)"/> Internado
-            <input type="radio" name="status" value="Adotado"  onmouseup="setRequired(event.target.value)"/> Adotado
-            <input type="radio" name="status" value="Óbito"  onmouseup="setRequired(event.target.value)"/> Óbito
-          </p>
-          <div id="larTemporarioBlock" class="full">
+  <body>
+    <div class="container">
+      <h1 class="brand">Cadastros de animais resgatados</h1>
+      <div class="wrapper">
+        <div class="company-info">
+          <h3>Menu de opções</h3>
+          <ul>
+              <li><a href="./index.html">Incluir</a></li>
+              <li><a href="./list.html">Editar</a></li>
+              <li>Pesquisar</li>
+          </ul>
+        </div>
+        <div class="contact">
+          <h3>Cadastrar animal</h3>
+          <div class="alert">Dados cadastrados com sucesso!</div>
+          <form id="contactForm">
             <p class="full">
-              <label>Lar temporário</label>
-              <input type="text" name="larTemporario" id="larTemporario" required>
-            </p>
-            <br />
-            <p class="full">
-              <label>Diário de tratamentos</label>
-              <ul id="tratamento-lista"></ul>
+              <label>Dados do animal</label>
             </p>
             <p>
+              <label>Código</label>
+              <input type="number" name="codigo" id="codigo" required>
+            </p>
+            <p>
+              <label>Nome</label>
+              <input type="text" name="nome" id="nome" required>
+            </p>
+            <p class="full">
+              <label>Link foto</label>
+              <input type="text" name="linkFoto" id="linkFoto">
+            </p>
+            <p class="full">
+              <label>Espécie</label>
+              <input type="radio" name="especie" value="Cachorro" checked="checked" /> Cachorro
+              <input type="radio" name="especie" value="Gato" /> Gato
+              <input type="radio" name="especie" value="Outro" /> Outro
+            </p>
+            <p class="full">
+              <label>Sexo</label>
+              <input type="radio" name="sexo" value="Macho" checked="checked" /> Macho
+              <input type="radio" name="sexo" value="Fêmea" /> Fêmea
+              <input type="radio" name="sexo" value="Indeterminado" /> Indeterminado
+            </p>
+            <p>
+              <label>Endereço do resgate</label>
+              <input type="text" name="enderecoResgate" id="enderecoResgate" required>
+            </p>
+            <p>
+              <label>Voluntário que resgatou</label>
+              <input type="text" name="voluntarioResgate" id="voluntarioResgate" required>
+            </p>
+            <p class="full">
+              <label>Data do regate</label>
+              <input type="date" name="dataResgate" id="dataResgate" required>
+            </p>
+            <p class="full">
+              <label>Observação sobre o regate</label>
+              <input type="text" name="observacao" id="observacao">
+            </p>
+            <p>
+              <input type="checkbox" name="castrado" id="castrado"> Castrado
+            </p>
+            <p class="full">
+              <label>Veterinários que trataram</label>
+            </p>
+            <p>
+              <input type="checkbox" name="cris" id="cris"> Cris
+            </p>
+            <p>
+              <input type="checkbox" name="marildo" id="marildo"> Marildo
+            </p>
+
+            <p class="full">
+              <label>Carteira de vacinação</label>
+              <ul id="vacinacao-lista"></ul>
+            </p>
+            <p class="full">
+              <label>Data</label>
+              <input type="date" name="dataVacinacao" id="dataVacinacao">
+              <label onclick="addItemV()"><b>Inserir entrada</b></label>
+            </p>
+            <p class="full">
+              <label>Status</label>
+              <input type="radio" name="status" value="Lar Temporário" onmouseup="setRequired(event.target.value)" checked="checked" /> Lar Temporário
+              <input type="radio" name="status" value="Internado"  onmouseup="setRequired(event.target.value)"/> Internado
+              <input type="radio" name="status" value="Adotado"  onmouseup="setRequired(event.target.value)"/> Adotado
+              <input type="radio" name="status" value="Óbito"  onmouseup="setRequired(event.target.value)"/> Óbito
+            </p>
+            <div id="larTemporarioBlock" class="full">
+              <p class="full">
+                <label>Lar temporário</label>
+                <input type="text" name="larTemporario" id="larTemporario" required>
+              </p>
+              <br />
+              <p class="full">
+                <label>Diário de tratamentos</label>
+                <ul id="tratamento-lista"></ul>
+              </p>
+              <p>
+                <p class="left-p">
+                  <label>Data</label>
+                  <input type="date" name="dataTratamento" id="dataTratamento">
+                </p>
+                <p class="right-p">
+                  <label>Dados</label>
+                  <input type="text" name="dadosTratamento" id="dadosTratamento"/>
+                </p>
+                <br class="clear" />
+                <label onclick="addItem()"><b>Inserir entrada</b></label>
+              </p>
+              
+              
+            </div>
+            <div id="internacaoBlock" class="full">
               <p class="left-p">
-                <label>Data</label>
-                <input type="date" name="dataTratamento" id="dataTratamento">
+                <label>Data da internação</label>
+                <input type="date" name="dataInternacao" id="dataInternacao">
+                
               </p>
               <p class="right-p">
-                <label>Dados</label>
-                <input type="text" name="dadosTratamento" id="dadosTratamento"/>
+                <label>Valor internação</label>
+                <input type="number" name="valorInternacao" id="valorInternacao">
               </p>
               <br class="clear" />
-              <label onclick="addItem()"><b>Inserir entrada</b></label>
+              <p>
+                <label>Motivo internação</label>
+                <input type="text" name="motivoInternacao" id="motivoInternacao">
+              </p>
+            </div>
+            <div id="adocaoBlock" class="full">
+              <p class="left-p">
+                <label>Data da adoção</label>
+                <input type="date" name="dataAdocao" id="dataAdocao">
+              </p>
+              <p class="right-p">
+                <label>Nome do adotante</label>
+                <input type="text" name="nomeAdotante" id="nomeAdotante">
+              </p>
+              <br class="clear" />
+              <p class="left-p">
+                <label>Telefone do adotante</label>
+                <input type="number" name="telefoneAdotante" id="telefoneAdotante">
+              </p>
+              <p class="right-p">
+                <label>CPF do adotante</label>
+                <input type="number" name="cpfAdotante" id="cpfAdotante">
+              </p>
+              <br class="clear" />
+              <p>
+                <label>Endereço do adotante</label>
+                <input type="text" name="enderecoAdotante" id="enderecoAdotante">
+              </p>
+            </div>
+            <div id="obitoBlock" class="full">
+              <p class="left-p">
+                <label>Data do óbito</label>
+                <input type="date" name="dataFalecimento" id="dataFalecimento">
+              </p>
+              <p class="right-p">
+                <label>Causa do óbito</label>
+                <input type="text" name="causaMorte" id="causaMorte">
+              </p>
+              <br class="clear" />
+            </div>
+            <p class="full">
+              <button type="submit">Salvar</button>
             </p>
-            
-            
-          </div>
-          <div id="internacaoBlock" class="full">
-            <p class="left-p">
-              <label>Data da internação</label>
-              <input type="date" name="dataInternacao" id="dataInternacao">
-              
-            </p>
-            <p class="right-p">
-              <label>Valor internação</label>
-              <input type="number" name="valorInternacao" id="valorInternacao">
-            </p>
-            <br class="clear" />
-            <p>
-              <label>Motivo internação</label>
-              <input type="text" name="motivoInternacao" id="motivoInternacao">
-            </p>
-          </div>
-          <div id="adocaoBlock" class="full">
-            <p class="left-p">
-              <label>Data da adoção</label>
-              <input type="date" name="dataAdocao" id="dataAdocao">
-            </p>
-            <p class="right-p">
-              <label>Nome do adotante</label>
-              <input type="text" name="nomeAdotante" id="nomeAdotante">
-            </p>
-            <br class="clear" />
-            <p class="left-p">
-              <label>Telefone do adotante</label>
-              <input type="number" name="telefoneAdotante" id="telefoneAdotante">
-            </p>
-            <p class="right-p">
-              <label>CPF do adotante</label>
-              <input type="number" name="cpfAdotante" id="cpfAdotante">
-            </p>
-            <br class="clear" />
-            <p>
-              <label>Endereço do adotante</label>
-              <input type="text" name="enderecoAdotante" id="enderecoAdotante">
-            </p>
-          </div>
-          <div id="obitoBlock" class="full">
-            <p class="left-p">
-              <label>Data do óbito</label>
-              <input type="date" name="dataFalecimento" id="dataFalecimento">
-            </p>
-            <p class="right-p">
-              <label>Causa do óbito</label>
-              <input type="text" name="causaMorte" id="causaMorte">
-            </p>
-            <br class="clear" />
-          </div>
-          <p class="full">
-            <button type="submit">Salvar</button>
-          </p>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-  <script src="general.js"></script>
-  <script src="main.js"></script>
-  
-</body>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="general.js"></script>
+    <script src="main.js"></script>
+    
+  </body>
 </html>
