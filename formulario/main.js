@@ -202,15 +202,9 @@ function removeItemV(liId){
   ul.removeChild(item);
 }
 
-// Save message to firebase
 function saveMessage(data){
-  //var newMessageRef = messagesRef.push();
-  //newMessageRef.set(data);
+  var uid = firebase.database().ref().child('animais').push().key;
   var updates = {};
-  updates['/users/' + uid] = data;
+  updates['/animais/' + uid] = data;
   firebase.database().ref().update(updates);
-}
-
-function listTemp() {
-  alert(firebase.database().ref('animais.json'));
 }
